@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		5FEBF5CC29B3D44A007E4513 /* DubDubGrubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5CB29B3D44A007E4513 /* DubDubGrubApp.swift */; };
-		5FEBF5CE29B3D44A007E4513 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5CD29B3D44A007E4513 /* ContentView.swift */; };
 		5FEBF5D029B3D44B007E4513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBF5CF29B3D44B007E4513 /* Assets.xcassets */; };
 		5FEBF5D329B3D44B007E4513 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBF5D229B3D44B007E4513 /* Preview Assets.xcassets */; };
 		5FEBF5DD29B3D44B007E4513 /* DubDubGrubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5DC29B3D44B007E4513 /* DubDubGrubTests.swift */; };
 		5FEBF5E729B3D44B007E4513 /* DubDubGrubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5E629B3D44B007E4513 /* DubDubGrubUITests.swift */; };
 		5FEBF5E929B3D44B007E4513 /* DubDubGrubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5E829B3D44B007E4513 /* DubDubGrubUITestsLaunchTests.swift */; };
+		5FEBF5F729B3D610007E4513 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5F629B3D610007E4513 /* Color+Ext.swift */; };
+		5FEBF5F929B3D667007E4513 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5F829B3D667007E4513 /* AppTabView.swift */; };
+		5FEBF5FB29B3D6AF007E4513 /* LocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5FA29B3D6AF007E4513 /* LocationMapView.swift */; };
+		5FEBF5FD29B3D6CD007E4513 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5FC29B3D6CD007E4513 /* LocationListView.swift */; };
+		5FEBF5FF29B3D6DA007E4513 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5FE29B3D6DA007E4513 /* ProfileView.swift */; };
+		5FEBF60129B3DDAD007E4513 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60029B3DDAD007E4513 /* LocationDetailView.swift */; };
+		5FEBF60429B3F63D007E4513 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60329B3F63D007E4513 /* LocationCell.swift */; };
+		5FEBF60629B3F669007E4513 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60529B3F669007E4513 /* AvatarView.swift */; };
+		5FEBF60829B3FC8B007E4513 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60729B3FC8B007E4513 /* CustomModifiers.swift */; };
+		5FEBF60A29B3FCB2007E4513 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60929B3FCB2007E4513 /* View+Ext.swift */; };
+		5FEBF60C29B3FD7A007E4513 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60B29B3FD7A007E4513 /* DDGButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +46,6 @@
 /* Begin PBXFileReference section */
 		5FEBF5C829B3D44A007E4513 /* DubDubGrub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DubDubGrub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEBF5CB29B3D44A007E4513 /* DubDubGrubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DubDubGrubApp.swift; sourceTree = "<group>"; };
-		5FEBF5CD29B3D44A007E4513 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5FEBF5CF29B3D44B007E4513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FEBF5D229B3D44B007E4513 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5FEBF5D829B3D44B007E4513 /* DubDubGrubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DubDubGrubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +53,19 @@
 		5FEBF5E229B3D44B007E4513 /* DubDubGrubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DubDubGrubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEBF5E629B3D44B007E4513 /* DubDubGrubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DubDubGrubUITests.swift; sourceTree = "<group>"; };
 		5FEBF5E829B3D44B007E4513 /* DubDubGrubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DubDubGrubUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5FEBF5F529B3D4B8007E4513 /* DubDubGrub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DubDubGrub.entitlements; sourceTree = "<group>"; };
+		5FEBF5F629B3D610007E4513 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		5FEBF5F829B3D667007E4513 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		5FEBF5FA29B3D6AF007E4513 /* LocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapView.swift; sourceTree = "<group>"; };
+		5FEBF5FC29B3D6CD007E4513 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
+		5FEBF5FE29B3D6DA007E4513 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5FEBF60029B3DDAD007E4513 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		5FEBF60229B3DF48007E4513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5FEBF60329B3F63D007E4513 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		5FEBF60529B3F669007E4513 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		5FEBF60729B3FC8B007E4513 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
+		5FEBF60929B3FCB2007E4513 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		5FEBF60B29B3FD7A007E4513 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +116,13 @@
 		5FEBF5CA29B3D44A007E4513 /* DubDubGrub */ = {
 			isa = PBXGroup;
 			children = (
-				5FEBF5CB29B3D44A007E4513 /* DubDubGrubApp.swift */,
-				5FEBF5CD29B3D44A007E4513 /* ContentView.swift */,
+				5FEBF60D29B3FE97007E4513 /* Extensions */,
+				5FEBF60E29B3FEB5007E4513 /* Views */,
+				5FEBF60229B3DF48007E4513 /* Info.plist */,
+				5FEBF5F529B3D4B8007E4513 /* DubDubGrub.entitlements */,
 				5FEBF5CF29B3D44B007E4513 /* Assets.xcassets */,
 				5FEBF5D129B3D44B007E4513 /* Preview Content */,
+				5FEBF5CB29B3D44A007E4513 /* DubDubGrubApp.swift */,
 			);
 			path = DubDubGrub;
 			sourceTree = "<group>";
@@ -125,6 +150,63 @@
 				5FEBF5E829B3D44B007E4513 /* DubDubGrubUITestsLaunchTests.swift */,
 			);
 			path = DubDubGrubUITests;
+			sourceTree = "<group>";
+		};
+		5FEBF60D29B3FE97007E4513 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF60929B3FCB2007E4513 /* View+Ext.swift */,
+				5FEBF5F629B3D610007E4513 /* Color+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5FEBF60E29B3FEB5007E4513 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF61229B3FF0D007E4513 /* CustomModifiers */,
+				5FEBF61129B3FEF2007E4513 /* CustomViews */,
+				5FEBF61029B3FEE9007E4513 /* Cells */,
+				5FEBF60F29B3FEC1007E4513 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5FEBF60F29B3FEC1007E4513 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF5F829B3D667007E4513 /* AppTabView.swift */,
+				5FEBF5FA29B3D6AF007E4513 /* LocationMapView.swift */,
+				5FEBF5FC29B3D6CD007E4513 /* LocationListView.swift */,
+				5FEBF60029B3DDAD007E4513 /* LocationDetailView.swift */,
+				5FEBF5FE29B3D6DA007E4513 /* ProfileView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		5FEBF61029B3FEE9007E4513 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF60329B3F63D007E4513 /* LocationCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5FEBF61129B3FEF2007E4513 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF60529B3F669007E4513 /* AvatarView.swift */,
+				5FEBF60B29B3FD7A007E4513 /* DDGButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		5FEBF61229B3FF0D007E4513 /* CustomModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF60729B3FC8B007E4513 /* CustomModifiers.swift */,
+			);
+			path = CustomModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +339,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FEBF5CE29B3D44A007E4513 /* ContentView.swift in Sources */,
 				5FEBF5CC29B3D44A007E4513 /* DubDubGrubApp.swift in Sources */,
+				5FEBF60829B3FC8B007E4513 /* CustomModifiers.swift in Sources */,
+				5FEBF5FB29B3D6AF007E4513 /* LocationMapView.swift in Sources */,
+				5FEBF5FD29B3D6CD007E4513 /* LocationListView.swift in Sources */,
+				5FEBF60129B3DDAD007E4513 /* LocationDetailView.swift in Sources */,
+				5FEBF5F929B3D667007E4513 /* AppTabView.swift in Sources */,
+				5FEBF5FF29B3D6DA007E4513 /* ProfileView.swift in Sources */,
+				5FEBF60A29B3FCB2007E4513 /* View+Ext.swift in Sources */,
+				5FEBF60429B3F63D007E4513 /* LocationCell.swift in Sources */,
+				5FEBF60C29B3FD7A007E4513 /* DDGButton.swift in Sources */,
+				5FEBF60629B3F669007E4513 /* AvatarView.swift in Sources */,
+				5FEBF5F729B3D610007E4513 /* Color+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,13 +506,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DubDubGrub/DubDubGrub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DubDubGrub/Preview Content\"";
 				DEVELOPMENT_TEAM = PWZT8E272V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = DubDubGrub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -443,13 +536,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DubDubGrub/DubDubGrub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DubDubGrub/Preview Content\"";
 				DEVELOPMENT_TEAM = PWZT8E272V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = DubDubGrub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
