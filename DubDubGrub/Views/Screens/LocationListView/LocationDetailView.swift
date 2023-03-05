@@ -65,12 +65,12 @@ struct LocationDetailView: View {
             
             ScrollView {
                 LazyVGrid(columns: columns, content: {
-                    FirstNameAvatarView(firstName: "Didar")
-                    FirstNameAvatarView(firstName: "Didar")
-                    FirstNameAvatarView(firstName: "Didar")
-                    FirstNameAvatarView(firstName: "Didar")
-                    FirstNameAvatarView(firstName: "Didar")
-                    FirstNameAvatarView(firstName: "Didar")
+                    FirstNameAvatarView(image: PlaceholderImage.avatar, firstName: "Didar")
+                    FirstNameAvatarView(image: PlaceholderImage.avatar, firstName: "Didar")
+                    FirstNameAvatarView(image: PlaceholderImage.avatar, firstName: "Didar")
+                    FirstNameAvatarView(image: PlaceholderImage.avatar, firstName: "Didar")
+                    FirstNameAvatarView(image: PlaceholderImage.avatar, firstName: "Didar")
+                    FirstNameAvatarView(image: PlaceholderImage.avatar, firstName: "Didar")
                 })
             }
             
@@ -107,12 +107,12 @@ struct LocationActionButton: View {
 }
 
 struct FirstNameAvatarView: View {
-    
+    var image: UIImage
     var firstName: String
     
     var body: some View {
         VStack {
-            AvatarView(size: 64)
+            AvatarView(image: image, size: 64)
             Text(firstName)
                 .bold()
                 .lineLimit(1)

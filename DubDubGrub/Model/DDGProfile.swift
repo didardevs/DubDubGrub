@@ -6,6 +6,7 @@
 //
 
 import CloudKit
+import UIKit
 
 struct DDGProfile {
     static let kFirstName = "firstName"
@@ -30,5 +31,10 @@ struct DDGProfile {
         self.companyName = record[DDGProfile.kCompanyName] as? String ?? "N/A"
         self.bio = record[DDGProfile.kBio] as? String ?? "N/A"
         self.avatar = record[DDGProfile.kAvatar] as? CKAsset
+    }
+    
+    func createAvatarImage() -> UIImage {
+        guard let asset = avatar else { return PlaceholderImage.avatar }
+        return asset.convertToUIImage(in: .square)
     }
 }
