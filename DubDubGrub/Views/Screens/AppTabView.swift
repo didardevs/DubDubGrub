@@ -27,6 +27,7 @@ struct AppTabView: View {
                 Label("Profile", systemImage: "person")
             }
         }
+        .onAppear{ DDGCloudKitManager.shared.getUserRecord() }
         .tint(.brandPrimary)
     }
 }

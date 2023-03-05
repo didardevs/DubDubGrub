@@ -22,15 +22,19 @@ struct LocationMapView: View {
             .ignoresSafeArea()
             
             VStack {
-                LogoView().shadow(radius: 10)
+                LogoView(frameWidth: 125)
+                    .shadow(radius: 10)
                 Spacer()
             }
+        }
+        .sheet(isPresented: $viewModel.isShowingOnboardView, onDismiss: viewModel.checkIfLocationServicesIsEnabled) {
+            OnBoardingView(isShowingOnboardView: $viewModel.isShowingOnboardView)
         }
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
-        .onAppear{
-            viewModel.checkIfLocationServicesIsEnabled()
+        .onAppear {
+            viewModel.runStartupChecks()
             if locationManager.locations.isEmpty {
                 viewModel.getLocations(for: locationManager)
             }
@@ -44,11 +48,4 @@ struct LocationMapView_Previews: PreviewProvider {
     }
 }
 
-struct LogoView: View {
-    var body: some View {
-        Image("ddg-map-logo")
-            .resizable()
-            .scaledToFit()
-            .frame(height: 70)
-    }
-}
+
