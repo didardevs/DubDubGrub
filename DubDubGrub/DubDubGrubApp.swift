@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct DubDubGrubApp: App {
+    let locationManager = DDGLocationManager()
+    
     var body: some Scene {
         WindowGroup {
-            AppTabView()
+            AppTabView().environmentObject(locationManager)
         }
     }
 }

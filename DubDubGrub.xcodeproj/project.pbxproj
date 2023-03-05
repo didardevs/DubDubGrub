@@ -24,6 +24,16 @@
 		5FEBF60829B3FC8B007E4513 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60729B3FC8B007E4513 /* CustomModifiers.swift */; };
 		5FEBF60A29B3FCB2007E4513 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60929B3FCB2007E4513 /* View+Ext.swift */; };
 		5FEBF60C29B3FD7A007E4513 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF60B29B3FD7A007E4513 /* DDGButton.swift */; };
+		5FEBF61529B428E5007E4513 /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF61429B428E5007E4513 /* DDGLocation.swift */; };
+		5FEBF61729B42CA0007E4513 /* DDGProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF61629B42CA0007E4513 /* DDGProfile.swift */; };
+		5FEBF61929B42E43007E4513 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF61829B42E43007E4513 /* MockData.swift */; };
+		5FEBF61C29B431E6007E4513 /* DDGCloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF61B29B431E6007E4513 /* DDGCloudKitManager.swift */; };
+		5FEBF61F29B43379007E4513 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF61E29B43379007E4513 /* Constants.swift */; };
+		5FEBF62129B43704007E4513 /* CKRecord+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62029B43704007E4513 /* CKRecord+Ext.swift */; };
+		5FEBF62329B437D5007E4513 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62229B437D5007E4513 /* AlertItem.swift */; };
+		5FEBF62629B44618007E4513 /* LocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62529B44618007E4513 /* LocationMapViewModel.swift */; };
+		5FEBF62829B44CEA007E4513 /* DDGLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62729B44CEA007E4513 /* DDGLocationManager.swift */; };
+		5FEBF62A29B485A8007E4513 /* CKAsset+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62929B485A8007E4513 /* CKAsset+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +76,16 @@
 		5FEBF60729B3FC8B007E4513 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		5FEBF60929B3FCB2007E4513 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		5FEBF60B29B3FD7A007E4513 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
+		5FEBF61429B428E5007E4513 /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
+		5FEBF61629B42CA0007E4513 /* DDGProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGProfile.swift; sourceTree = "<group>"; };
+		5FEBF61829B42E43007E4513 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		5FEBF61B29B431E6007E4513 /* DDGCloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGCloudKitManager.swift; sourceTree = "<group>"; };
+		5FEBF61E29B43379007E4513 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5FEBF62029B43704007E4513 /* CKRecord+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+Ext.swift"; sourceTree = "<group>"; };
+		5FEBF62229B437D5007E4513 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		5FEBF62529B44618007E4513 /* LocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewModel.swift; sourceTree = "<group>"; };
+		5FEBF62729B44CEA007E4513 /* DDGLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocationManager.swift; sourceTree = "<group>"; };
+		5FEBF62929B485A8007E4513 /* CKAsset+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +136,9 @@
 		5FEBF5CA29B3D44A007E4513 /* DubDubGrub */ = {
 			isa = PBXGroup;
 			children = (
-				5FEBF60D29B3FE97007E4513 /* Extensions */,
+				5FEBF61D29B4336D007E4513 /* Utilities */,
+				5FEBF61A29B431D2007E4513 /* Managers */,
+				5FEBF61329B428D7007E4513 /* Model */,
 				5FEBF60E29B3FEB5007E4513 /* Views */,
 				5FEBF60229B3DF48007E4513 /* Info.plist */,
 				5FEBF5F529B3D4B8007E4513 /* DubDubGrub.entitlements */,
@@ -157,6 +179,8 @@
 			children = (
 				5FEBF60929B3FCB2007E4513 /* View+Ext.swift */,
 				5FEBF5F629B3D610007E4513 /* Color+Ext.swift */,
+				5FEBF62029B43704007E4513 /* CKRecord+Ext.swift */,
+				5FEBF62929B485A8007E4513 /* CKAsset+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,8 +199,8 @@
 		5FEBF60F29B3FEC1007E4513 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5FEBF62429B445DF007E4513 /* LocationMapView */,
 				5FEBF5F829B3D667007E4513 /* AppTabView.swift */,
-				5FEBF5FA29B3D6AF007E4513 /* LocationMapView.swift */,
 				5FEBF5FC29B3D6CD007E4513 /* LocationListView.swift */,
 				5FEBF60029B3DDAD007E4513 /* LocationDetailView.swift */,
 				5FEBF5FE29B3D6DA007E4513 /* ProfileView.swift */,
@@ -207,6 +231,44 @@
 				5FEBF60729B3FC8B007E4513 /* CustomModifiers.swift */,
 			);
 			path = CustomModifiers;
+			sourceTree = "<group>";
+		};
+		5FEBF61329B428D7007E4513 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF61429B428E5007E4513 /* DDGLocation.swift */,
+				5FEBF61629B42CA0007E4513 /* DDGProfile.swift */,
+				5FEBF61829B42E43007E4513 /* MockData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5FEBF61A29B431D2007E4513 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF61B29B431E6007E4513 /* DDGCloudKitManager.swift */,
+				5FEBF62729B44CEA007E4513 /* DDGLocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5FEBF61D29B4336D007E4513 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF61E29B43379007E4513 /* Constants.swift */,
+				5FEBF62229B437D5007E4513 /* AlertItem.swift */,
+				5FEBF60D29B3FE97007E4513 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5FEBF62429B445DF007E4513 /* LocationMapView */ = {
+			isa = PBXGroup;
+			children = (
+				5FEBF62529B44618007E4513 /* LocationMapViewModel.swift */,
+				5FEBF5FA29B3D6AF007E4513 /* LocationMapView.swift */,
+			);
+			path = LocationMapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,15 +402,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FEBF5CC29B3D44A007E4513 /* DubDubGrubApp.swift in Sources */,
+				5FEBF61F29B43379007E4513 /* Constants.swift in Sources */,
 				5FEBF60829B3FC8B007E4513 /* CustomModifiers.swift in Sources */,
 				5FEBF5FB29B3D6AF007E4513 /* LocationMapView.swift in Sources */,
+				5FEBF62629B44618007E4513 /* LocationMapViewModel.swift in Sources */,
 				5FEBF5FD29B3D6CD007E4513 /* LocationListView.swift in Sources */,
+				5FEBF61929B42E43007E4513 /* MockData.swift in Sources */,
 				5FEBF60129B3DDAD007E4513 /* LocationDetailView.swift in Sources */,
+				5FEBF61729B42CA0007E4513 /* DDGProfile.swift in Sources */,
+				5FEBF61529B428E5007E4513 /* DDGLocation.swift in Sources */,
 				5FEBF5F929B3D667007E4513 /* AppTabView.swift in Sources */,
 				5FEBF5FF29B3D6DA007E4513 /* ProfileView.swift in Sources */,
 				5FEBF60A29B3FCB2007E4513 /* View+Ext.swift in Sources */,
+				5FEBF62329B437D5007E4513 /* AlertItem.swift in Sources */,
 				5FEBF60429B3F63D007E4513 /* LocationCell.swift in Sources */,
+				5FEBF61C29B431E6007E4513 /* DDGCloudKitManager.swift in Sources */,
+				5FEBF62129B43704007E4513 /* CKRecord+Ext.swift in Sources */,
 				5FEBF60C29B3FD7A007E4513 /* DDGButton.swift in Sources */,
+				5FEBF62A29B485A8007E4513 /* CKAsset+Ext.swift in Sources */,
+				5FEBF62829B44CEA007E4513 /* DDGLocationManager.swift in Sources */,
 				5FEBF60629B3F669007E4513 /* AvatarView.swift in Sources */,
 				5FEBF5F729B3D610007E4513 /* Color+Ext.swift in Sources */,
 			);
@@ -514,6 +586,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DubDubGrub/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dub Dub Grub uses your location to show where you are on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -544,6 +617,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DubDubGrub/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dub Dub Grub uses your location to show where you are on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
