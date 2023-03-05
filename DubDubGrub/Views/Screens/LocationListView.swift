@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct LocationListView: View {
+    @EnvironmentObject private var locationManager: DDGLocationManager
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<10) { item in
-                    NavigationLink(destination: LocationDetailView()) {
-                        LocationCell()
+                ForEach(locationManager.locations) { location in
+                    NavigationLink(destination: LocationDetailView(location: location)) {
+                        LocationCell(location: location)
                             .layoutPriority(1)
                     }
                 }
