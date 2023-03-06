@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct OnBoardingView: View {
+    
     @Binding var isShowingOnboardView: Bool
+    
     var body: some View {
         VStack {
             HStack {
@@ -23,8 +25,7 @@ struct OnBoardingView: View {
             
             Spacer()
             
-            LogoView(frameWidth: 250)
-                .padding(.bottom)
+            LogoView(frameWidth: 250).padding(.bottom)
             
             VStack(alignment: .leading, spacing: 32) {
                 OnboardInfoView(imageName: "building.2.crop.circle", title: "Restaurant Locations", description: "Find places to dine around the convention center")
@@ -44,9 +45,11 @@ struct OnBoardingView_Previews: PreviewProvider {
 }
 
 struct OnboardInfoView: View {
+    
     var imageName: String
     var title: String
     var description: String
+    
     var body: some View {
         HStack(spacing: 26) {
             Image(systemName: imageName)

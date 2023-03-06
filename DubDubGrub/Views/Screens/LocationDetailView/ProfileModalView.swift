@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ProfileModalView: View {
+    
     @Binding var isShowingProfileModalView : Bool
     var profile: DDGProfile
+    
     var body: some View {
         ZStack {
             VStack{

@@ -11,6 +11,7 @@ struct LocationCell: View {
     
     var location: DDGLocation
     var profiles: [DDGProfile]
+    
     var body: some View {
         HStack {
             Image(uiImage: location.createSquareImage())
@@ -56,8 +57,10 @@ struct LocationCell_Previews: PreviewProvider {
 }
 
 
-struct AdditionalProfilesView: View{
+struct AdditionalProfilesView: View {
+    
     var number: Int
+    
     var body: some View {
         Text("+\(number)")
             .font(.system(size: 14, weight: .semibold))

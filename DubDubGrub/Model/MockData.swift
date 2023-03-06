@@ -8,6 +8,7 @@
 import CloudKit
 
 struct MockData {
+    
     static var location: CKRecord {
         let record = CKRecord(recordType: RecordType.location)
         record[DDGLocation.kName] = "Didar's Bar and Grill"
@@ -26,7 +27,6 @@ struct MockData {
         record[DDGProfile.kLastName] = "Test"
         record[DDGProfile.kCompanyName] = "Test's Company"
         record[DDGProfile.kBio] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-        
         
         return record
     }

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct AvatarView: View {
+    
     var image: UIImage
     var size: CGFloat
+    
     var body: some View {
         Image(uiImage: image)
             .resizable()
