@@ -32,4 +32,13 @@ struct AlertContex {
     static let unableToGetProfile = AlertItem(title: Text("Unable to Retrieve Profile"), message: Text("We were unable to retrieve your profile at this time. \nPlese try again later or contact customer support if this persists."), dismissButton: .default(Text("Ok")))
     static let updateProfileSuccess = AlertItem(title: Text("Profile Updated Successfully!"), message: Text("Your Dub Dub Grub's profile was updated successfully!"), dismissButton: .default(Text("Ok")))
     static let updateProfileFailure = AlertItem(title: Text("Profile Update Failed!"), message: Text("We were unable to update your profile at this time. \nPlese try again later or contact customer support if this persists."), dismissButton: .default(Text("Ok")))
+    
+    //MARK: - LocationDetailView Errors
+    static let invalidPhoneNumber = AlertItem(title: Text("Invalid Phone Number"), message: Text("The phone number for location is invalid."), dismissButton: .default(Text("Ok")))
+    static let invalidDevice = AlertItem(title: Text("Invalid Device"), message: Text("You may call only on iPhone device."), dismissButton: .default(Text("Ok")))
+    static let unableToGetCheckInStatus = AlertItem(title: Text("Server Error"), message: Text("Unable to retrieve checked in status of the current user.\nPlease try again."), dismissButton: .default(Text("Ok")))
+    
+    static let unableToCheckInOrOut = AlertItem(title: Text("Server Error"), message: Text("We are unable to check in/out at this time.\nPlease try again."), dismissButton: .default(Text("Ok")))
+    
+    static let unableToGetCheckedInProfiles = AlertItem(title: Text("Server Error"), message: Text("We are unable to get users checked into this location at this time.\nPlease try again."), dismissButton: .default(Text("Ok")))
 }

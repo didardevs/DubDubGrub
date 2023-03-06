@@ -13,6 +13,7 @@ final class DDGCloudKitManager {
     private init() {}
     
     var userRecord: CKRecord?
+    var profileRecordID: CKRecord.ID?
     
     func getUserRecord() {
         CKContainer.default().fetchUserRecordID { recordID, error in
@@ -26,7 +27,9 @@ final class DDGCloudKitManager {
                     return
                 }
                 self.userRecord = userRecord
-                print(self.userRecord)
+                if let profileReference = userRecord["userProfile"] as? CKRecord.Reference {
+                    self.profileRecordID = profileReference.recordID
+                }
             }
         }
     }
@@ -46,6 +49,45 @@ final class DDGCloudKitManager {
             let locations = records.map { $0.convertToDDGLocation() }
             completed(.success(locations))
         }
+    }
+    
+    func getCheckedInProfiles(for locationID: CKRecord.ID, completed: @escaping (Result<[DDGProfile], Error>) -> Void) {
+        let reference = CKRecord.Reference(recordID: locationID, action: .none)
+        let predicate = NSPredicate(format: "isCheckedIn == %@", reference)
+        let query = CKQuery(recordType: RecordType.profile, predicate: predicate)
+        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
+            guard let records, error == nil else {
+                completed(.failure(error!))
+                return
+            }
+            
+            let profiles = records.map { $0.convertToDDGProfile() }
+            completed(.success(profiles))
+        }
+    }
+    
+    func getCheckedInProfileDictionary(completed: @escaping (Result<[CKRecord.ID: [DDGProfile]], Error>) -> Void) {
+        let predicate = NSPredicate(format: "isCheckedInNilCheck == 1")
+        let query = CKQuery(recordType: RecordType.profile, predicate: predicate)
+        let operation = CKQueryOperation(query: query)
+        var checkedInProfiles: [CKRecord.ID: [DDGProfile]] = [:]
+        
+        operation.recordFetchedBlock = { record in
+            let profile = DDGProfile(record: record)
+            guard let locationReference = profile.isCheckedIn else { return }
+            checkedInProfiles[locationReference.recordID, default: []].append(profile)
+        }
+        
+        operation.queryCompletionBlock = { cursor, error in
+            guard error == nil else {
+                completed(.failure(error!))
+                return
+            }
+            
+            completed(.success(checkedInProfiles))
+        }
+        
+        CKContainer.default().publicCloudDatabase.add(operation)
     }
     
     func batchSave(records: [CKRecord], completed: @escaping (Result<[CKRecord], Error>) -> Void) {
