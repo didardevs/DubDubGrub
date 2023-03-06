@@ -18,6 +18,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var isShowingPhotoPicker = false
     @Published var isLoading = false
     @Published var alertItem: AlertItem?
+    @Published var isCheckedIn = false
     
     private var existingProfileRecord: CKRecord? {
         didSet { profileContext = .update }
@@ -56,6 +57,7 @@ final class ProfileViewModel: ObservableObject {
                 case .success(let records):
                     for record in records where record.recordType == RecordType.profile {
                         existingProfileRecord = record
+                        DDGCloudKitManager.shared.profileRecordID = record.recordID
                     }
                     alertItem = AlertContex.createProfileSuccess
                 case .failure(_):
@@ -128,6 +130,53 @@ final class ProfileViewModel: ObservableObject {
                 case .failure(_):
                     alertItem = AlertContex.updateProfileFailure
                 }
+            }
+        }
+    }
+    
+    func getCheckedInStatus() {
+        guard let profileRecordID = DDGCloudKitManager.shared.profileRecordID else { return }
+        
+        DDGCloudKitManager.shared.fetchRecord(with: profileRecordID) { result in
+            DispatchQueue.main.async {
+                switch result {
+                    case .success(let record):
+                        if let _ = record[DDGProfile.kIsCheckedIn] as? CKRecord.Reference {
+                            self.isCheckedIn = true
+                        } else {
+                            self.isCheckedIn = false
+                        }
+                    case .failure(_):
+                    break
+                }
+            }
+        }
+    }
+    
+    func checkOut() {
+        guard let profileID = DDGCloudKitManager.shared.profileRecordID else {
+            alertItem = AlertContex.unableToGetProfile
+            return
+        }
+        
+        DDGCloudKitManager.shared.fetchRecord(with: profileID) { result in
+            switch result {
+                
+            case .success(let record):
+                record[DDGProfile.kIsCheckedIn] = nil
+                record[DDGProfile.kIsCheckedInNilCheck] = nil
+                DDGCloudKitManager.shared.save(record: record) {  result in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(_):
+                            self.isCheckedIn = false
+                        case .failure(_):
+                            self.alertItem = AlertContex.unableToCheckInOrOut
+                        }
+                    }
+                }
+            case .failure(_):
+                DispatchQueue.main.async { self.alertItem = AlertContex.unableToCheckInOrOut }
             }
         }
     }
