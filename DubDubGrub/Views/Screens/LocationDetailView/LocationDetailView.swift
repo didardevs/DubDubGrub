@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LocationDetailView: View {
+    
     @ObservedObject var viewModel: LocationDetailViewModel
     
     var body: some View {
@@ -123,8 +124,10 @@ struct LocationDetailView_Previews: PreviewProvider {
 }
 
 struct LocationActionButton: View {
+    
     var color: Color
     var imageName: String
+    
     var body: some View {
         ZStack {
             Circle()
@@ -140,7 +143,9 @@ struct LocationActionButton: View {
 }
 
 struct FirstNameAvatarView: View {
+    
     var profile: DDGProfile
+    
     var body: some View {
         VStack {
             AvatarView(image: profile.createAvatarImage(), size: 64)
@@ -163,7 +168,9 @@ struct BannerImageView: View {
 }
 
 struct AddressView: View {
+    
     var address: String
+    
     var body: some View {
         Label(address, systemImage: "mappin.and.ellipse")
             .font(.caption)
@@ -172,7 +179,9 @@ struct AddressView: View {
 }
 
 struct DescriptionView: View {
+    
     var text: String
+    
     var body: some View {
         Text(text)
             .lineLimit(3)

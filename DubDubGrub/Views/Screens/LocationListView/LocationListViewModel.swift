@@ -9,7 +9,9 @@ import Foundation
 import CloudKit
 
 final class LocationListViewModel: ObservableObject {
+    
     @Published var checkedInProfiles: [CKRecord.ID : [DDGProfile]] = [:]
+    
     
     func getCheckedInProfileDictionary() {
         DDGCloudKitManager.shared.getCheckedInProfileDictionary { result in
@@ -23,6 +25,4 @@ final class LocationListViewModel: ObservableObject {
             }
         }
     }
-    
-    
 }

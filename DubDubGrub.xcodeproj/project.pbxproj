@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F33158A29B684F10010E2FD /* MapBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158929B684F10010E2FD /* MapBalloon.swift */; };
+		5F33158C29B6887E0010E2FD /* DDGMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158B29B6887E0010E2FD /* DDGMapAnnotation.swift */; };
+		5F33158F29B68C4F0010E2FD /* AppTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158E29B68C4F0010E2FD /* AppTabViewModel.swift */; };
 		5F7F123D29B493B800A5F96D /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7F123C29B493B800A5F96D /* OnBoardingView.swift */; };
 		5F7F123F29B493F000A5F96D /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7F123E29B493F000A5F96D /* LogoView.swift */; };
 		5F7F124229B4977200A5F96D /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7F124129B4977200A5F96D /* XDismissButton.swift */; };
@@ -64,6 +67,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F33158929B684F10010E2FD /* MapBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBalloon.swift; sourceTree = "<group>"; };
+		5F33158B29B6887E0010E2FD /* DDGMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGMapAnnotation.swift; sourceTree = "<group>"; };
+		5F33158E29B68C4F0010E2FD /* AppTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewModel.swift; sourceTree = "<group>"; };
 		5F7F123C29B493B800A5F96D /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		5F7F123E29B493F000A5F96D /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		5F7F124129B4977200A5F96D /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
@@ -133,6 +139,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F33158829B684DE0010E2FD /* Map Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				5F33158929B684F10010E2FD /* MapBalloon.swift */,
+				5F33158B29B6887E0010E2FD /* DDGMapAnnotation.swift */,
+			);
+			path = "Map Annotation";
+			sourceTree = "<group>";
+		};
+		5F33158D29B68C3E0010E2FD /* AppTabView */ = {
+			isa = PBXGroup;
+			children = (
+				5F33158E29B68C4F0010E2FD /* AppTabViewModel.swift */,
+				5FEBF5F829B3D667007E4513 /* AppTabView.swift */,
+			);
+			path = AppTabView;
+			sourceTree = "<group>";
+		};
 		5F7F124029B4976700A5F96D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				5FBA3E0129B55A91007DE037 /* LocationDetailView */,
-				5FEBF5F829B3D667007E4513 /* AppTabView.swift */,
+				5F33158D29B68C3E0010E2FD /* AppTabView */,
 				5F7F123C29B493B800A5F96D /* OnBoardingView.swift */,
 				5FEBF62429B445DF007E4513 /* LocationMapView */,
 				5FBA3DFC29B539B7007DE037 /* LocationListView */,
@@ -278,6 +302,7 @@
 		5FEBF61129B3FEF2007E4513 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				5F33158829B684DE0010E2FD /* Map Annotation */,
 				5F7F124329B49E2D00A5F96D /* UIKit Components */,
 				5F7F124029B4976700A5F96D /* Buttons */,
 				5FEBF60529B3F669007E4513 /* AvatarView.swift */,
@@ -474,6 +499,7 @@
 				5FEBF5FD29B3D6CD007E4513 /* LocationListView.swift in Sources */,
 				5FEBF61929B42E43007E4513 /* MockData.swift in Sources */,
 				5FEBF60129B3DDAD007E4513 /* LocationDetailView.swift in Sources */,
+				5F33158F29B68C4F0010E2FD /* AppTabViewModel.swift in Sources */,
 				5FEBF61729B42CA0007E4513 /* DDGProfile.swift in Sources */,
 				5F7F124529B49E4E00A5F96D /* PhotoPicker.swift in Sources */,
 				5FEBF61529B428E5007E4513 /* DDGLocation.swift in Sources */,
@@ -490,9 +516,11 @@
 				5FEBF62129B43704007E4513 /* CKRecord+Ext.swift in Sources */,
 				5FEBF60C29B3FD7A007E4513 /* DDGButton.swift in Sources */,
 				5FEBF62A29B485A8007E4513 /* CKAsset+Ext.swift in Sources */,
+				5F33158A29B684F10010E2FD /* MapBalloon.swift in Sources */,
 				5FEBF62829B44CEA007E4513 /* DDGLocationManager.swift in Sources */,
 				5FBA3E0029B54A21007DE037 /* LoadingView.swift in Sources */,
 				5F7F124729B4A7F800A5F96D /* UIImage+Ext.swift in Sources */,
+				5F33158C29B6887E0010E2FD /* DDGMapAnnotation.swift in Sources */,
 				5FEBF60629B3F669007E4513 /* AvatarView.swift in Sources */,
 				5FEBF5F729B3D610007E4513 /* Color+Ext.swift in Sources */,
 			);

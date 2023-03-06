@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DDGButton: View {
+    
     var buttonTitle: String
+    
     var body: some View {
         Text(buttonTitle)
             .bold()

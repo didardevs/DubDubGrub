@@ -10,6 +10,7 @@ import CloudKit
 enum ProfileContext { case create, update }
 
 final class ProfileViewModel: ObservableObject {
+    
     @Published var firstName = ""
     @Published var lastName = ""
     @Published var companyName = ""
@@ -23,9 +24,11 @@ final class ProfileViewModel: ObservableObject {
     private var existingProfileRecord: CKRecord? {
         didSet { profileContext = .update }
     }
+    
     var profileContext: ProfileContext = .create
     
-    func isValidProfile() -> Bool {
+    
+    private func isValidProfile() -> Bool {
         guard !firstName.isEmpty,
               !lastName.isEmpty,
               !companyName.isEmpty,
@@ -42,6 +45,7 @@ final class ProfileViewModel: ObservableObject {
         }
         
         let profileRecord = createProfileRecord()
+        
         guard let userRecord = DDGCloudKitManager.shared.userRecord else {
             alertItem = AlertContex.noUserRecord
             return
@@ -77,8 +81,8 @@ final class ProfileViewModel: ObservableObject {
         }
         
         guard let profileReference = userRecord["userProfile"] as? CKRecord.Reference else { return }
-        
         let profileRecordId = profileReference.recordID
+        
         showLoadingView()
         DDGCloudKitManager.shared.fetchRecord(with: profileRecordId) { result in
             DispatchQueue.main.async { [self] in
@@ -104,6 +108,7 @@ final class ProfileViewModel: ObservableObject {
     }
     
     func updateProfile() {
+        
         guard isValidProfile() else {
             alertItem = AlertContex.invalidProfile
             return
@@ -121,6 +126,7 @@ final class ProfileViewModel: ObservableObject {
         existingProfileRecord[DDGProfile.kAvatar] = avatar.convertToCKAsset()
         
         showLoadingView()
+        
         DDGCloudKitManager.shared.save(record: existingProfileRecord) { result in
             DispatchQueue.main.async { [self] in
                 hideLoadingView()
@@ -135,6 +141,7 @@ final class ProfileViewModel: ObservableObject {
     }
     
     func getCheckedInStatus() {
+        
         guard let profileRecordID = DDGCloudKitManager.shared.profileRecordID else { return }
         
         DDGCloudKitManager.shared.fetchRecord(with: profileRecordID) { result in
@@ -154,6 +161,7 @@ final class ProfileViewModel: ObservableObject {
     }
     
     func checkOut() {
+        
         guard let profileID = DDGCloudKitManager.shared.profileRecordID else {
             alertItem = AlertContex.unableToGetProfile
             return
@@ -161,10 +169,10 @@ final class ProfileViewModel: ObservableObject {
         
         DDGCloudKitManager.shared.fetchRecord(with: profileID) { result in
             switch result {
-                
             case .success(let record):
                 record[DDGProfile.kIsCheckedIn] = nil
                 record[DDGProfile.kIsCheckedInNilCheck] = nil
+                
                 DDGCloudKitManager.shared.save(record: record) {  result in
                     DispatchQueue.main.async {
                         switch result {
@@ -188,6 +196,7 @@ final class ProfileViewModel: ObservableObject {
         profileRecord[DDGProfile.kCompanyName] = companyName
         profileRecord[DDGProfile.kBio] = bio
         profileRecord[DDGProfile.kAvatar] = avatar.convertToCKAsset()
+        
         return profileRecord
     }
     

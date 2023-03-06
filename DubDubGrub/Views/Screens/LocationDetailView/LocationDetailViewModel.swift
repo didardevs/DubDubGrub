@@ -12,6 +12,7 @@ import CloudKit
 enum CheckInStatus { case checkIn, checkOut }
 
 final class LocationDetailViewModel: ObservableObject {
+    
     @Published var checkedInProfiles: [DDGProfile] = []
     @Published var isCheckedIn = false
     @Published var isShowingProfileModal = false
@@ -21,9 +22,8 @@ final class LocationDetailViewModel: ObservableObject {
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     var location: DDGLocation
     
-    init(location:DDGLocation) {
-        self.location = location
-    }
+    init(location:DDGLocation) { self.location = location }
+    
     
     func getDirectionsToLocation() {
         let placemark = MKPlacemark(coordinate: location.location.coordinate)
@@ -38,6 +38,7 @@ final class LocationDetailViewModel: ObservableObject {
             alertItem = AlertContex.invalidPhoneNumber
             return
         }
+        
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         } else {
@@ -118,6 +119,7 @@ final class LocationDetailViewModel: ObservableObject {
                 case .failure(_):
                     alertItem = AlertContex.unableToGetCheckedInProfiles
                 }
+                
                 hideLoadingView()
             }
         }

@@ -9,6 +9,7 @@ import SwiftUI
 import CloudKit
 
 struct ProfileView: View {
+    
     @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
@@ -86,9 +87,7 @@ struct ProfileView: View {
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
-        .sheet(isPresented: $viewModel.isShowingPhotoPicker) {
-            PhotoPicker(image: $viewModel.avatar)
-        }
+        .sheet(isPresented: $viewModel.isShowingPhotoPicker) { PhotoPicker(image: $viewModel.avatar) }
     }
 }
 
@@ -101,6 +100,7 @@ struct ProfileView_Previews: PreviewProvider {
 }
 
 struct NameBackgroundView: View {
+    
     var body: some View {
         Color(.secondarySystemBackground)
             .frame(height: 130)
@@ -110,6 +110,7 @@ struct NameBackgroundView: View {
 }
 
 struct EditImage: View {
+    
     var body: some View {
         Image(systemName: "square.and.pencil")
             .resizable()
@@ -121,7 +122,9 @@ struct EditImage: View {
 }
 
 struct CharactersRemainView: View {
+    
     var currentCount: Int
+    
     var body: some View {
         Text("Bio: ")
             .font(.callout)
