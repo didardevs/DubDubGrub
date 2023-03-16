@@ -12,12 +12,14 @@ struct LocationMapView: View {
     
     @EnvironmentObject private var locationManager: DDGLocationManager
     @StateObject private var viewModel = LocationMapViewModel()
+    @Environment(\.dynamicTypeSize) var sizeCategory
     
     var body: some View {
         ZStack {
             Map(coordinateRegion: $viewModel.region,showsUserLocation: true, annotationItems: locationManager.locations) { location in
                 MapAnnotation(coordinate: location.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
                     DDGMapAnnotation(location: location, number: viewModel.checkedInProfiles[location.id, default: 0])
+                        .accessibilityLabel(Text(viewModel.createVoiceOverSummary(for: location)))
                         .onTapGesture {
                             locationManager.selectedLocation = location
                             if let _ = locationManager.selectedLocation {
@@ -37,7 +39,7 @@ struct LocationMapView: View {
         }
         .sheet(isPresented: $viewModel.isShowingDetailView) {
             NavigationView {
-                LocationDetailView(viewModel: LocationDetailViewModel(location: locationManager.selectedLocation!))
+                viewModel.createLocationDetailView(for: locationManager.selectedLocation!, in: sizeCategory)
                     .toolbar { Button("Dismiss") { viewModel.isShowingDetailView = false } }
             }
             .tint(.brandPrimary)

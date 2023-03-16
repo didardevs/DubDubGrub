@@ -5,7 +5,7 @@
 //  Created by Didar Naurzbayev on 3/5/23.
 //
 
-import Foundation
+import SwiftUI
 import CloudKit
 
 final class LocationListViewModel: ObservableObject {
@@ -23,6 +23,21 @@ final class LocationListViewModel: ObservableObject {
                     print("Error in getting back dictionary")
                 }
             }
+        }
+    }
+    
+    func createVoiceOverSummary(for location: DDGLocation) -> String {
+        let count = checkedInProfiles[location.id, default: []].count
+        let personPlurality = count == 1 ? "person" : "people"
+        
+        return "\(location.name) \(count) \(personPlurality) checked in"
+    }
+    
+    @ViewBuilder func createLocationDetailView(for location: DDGLocation, in sizeCategory: DynamicTypeSize) -> some View {
+        if sizeCategory >= .large {
+            LocationDetailView(viewModel: LocationDetailViewModel(location: location)).embedInScrollView()
+        } else {
+            LocationDetailView(viewModel: LocationDetailViewModel(location: location))
         }
     }
 }

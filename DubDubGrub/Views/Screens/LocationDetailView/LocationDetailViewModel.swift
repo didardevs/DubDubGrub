@@ -16,14 +16,20 @@ final class LocationDetailViewModel: ObservableObject {
     @Published var checkedInProfiles: [DDGProfile] = []
     @Published var isCheckedIn = false
     @Published var isShowingProfileModal = false
+    @Published var isShowingProfileSheet = false
     @Published var isLoading = false
     @Published var alertItem: AlertItem?
     
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
     var location: DDGLocation
+    var selectedProfile: DDGProfile?
     
     init(location:DDGLocation) { self.location = location }
     
+    func determineColumns(for sizeCategory: DynamicTypeSize) -> [GridItem] {
+        let numberOfColumns = sizeCategory >= .large ? 1 : 3
+        return Array(repeating: GridItem(.flexible()), count: numberOfColumns)
+    }
     
     func getDirectionsToLocation() {
         let placemark = MKPlacemark(coordinate: location.location.coordinate)
@@ -122,6 +128,15 @@ final class LocationDetailViewModel: ObservableObject {
                 
                 hideLoadingView()
             }
+        }
+    }
+    
+    func show(profile: DDGProfile, in sizeCategory: DynamicTypeSize) {
+        selectedProfile = profile
+        if sizeCategory >= .large {
+            isShowingProfileSheet = true
+        } else {
+            isShowingProfileModal = true
         }
     }
     
