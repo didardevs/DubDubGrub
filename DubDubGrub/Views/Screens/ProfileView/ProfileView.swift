@@ -23,6 +23,10 @@ struct ProfileView: View {
                             AvatarView(image: viewModel.avatar, size: 84)
                             EditImage()
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityAddTraits(.isButton)
+                        .accessibilityLabel(Text("Profile Photo"))
+                        .accessibilityHint(Text("Opens the Iphone's photo picker"))
                         .padding(.leading, 12)
                         .onTapGesture { viewModel.isShowingPhotoPicker = true }
                         
@@ -39,10 +43,12 @@ struct ProfileView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         CharactersRemainView(currentCount: viewModel.bio.count)
+                            .accessibilityAddTraits(.isHeader)
                         Spacer()
                         if viewModel.isCheckedIn {
                             Button {
                                 viewModel.checkOut()
+                                playHaptic()
                             } label: {
                                 Label("Check Out", systemImage: "mappin.and.ellipse")
                                     .font(.system(size: 12, weight: .semibold))
@@ -52,12 +58,16 @@ struct ProfileView: View {
                                     .background(Color.grubRed)
                                     .cornerRadius(8)
                             }
+                            .accessibilityLabel(Text("Check out of current location"))
                         }
                     }
                     
                     TextEditor(text: $viewModel.bio)
                         .frame(height: 100)
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(.secondary, lineWidth: 1))
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel(Text("Bio, \(viewModel.bio)"))
+                        .accessibilityHint(Text("This textfield for your bio and has a 100 characters maximum"))
                 }
                 .padding(.horizontal, 20)
                 
@@ -73,6 +83,7 @@ struct ProfileView: View {
             if viewModel.isLoading { LoadingView() }
         }
         .navigationTitle("Profile")
+        .navigationBarTitleDisplayMode(DeviceTypes.isiPhone8Standard ? .inline : .automatic)
         .toolbar {
             Button {
                 dismissKeyboard()

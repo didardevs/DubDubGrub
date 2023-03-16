@@ -5,6 +5,7 @@
 //  Created by Didar Naurzbayev on 3/4/23.
 //
 
+import SwiftUI
 import MapKit
 import CloudKit
 
@@ -39,6 +40,21 @@ final class LocationMapViewModel: ObservableObject {
                         break
                 }
             }
+        }
+    }
+    
+    func createVoiceOverSummary(for location: DDGLocation) -> String {
+        let count = checkedInProfiles[location.id, default: 0]
+        let personPlurality = count == 1 ? "person" : "people"
+        
+        return "Map Pin \(location.name) \(count) \(personPlurality) checked in"
+    }
+    
+    @ViewBuilder func createLocationDetailView(for location: DDGLocation, in sizeCategory: DynamicTypeSize) -> some View {
+        if sizeCategory >= .large {
+            LocationDetailView(viewModel: LocationDetailViewModel(location: location)).embedInScrollView()
+        } else {
+            LocationDetailView(viewModel: LocationDetailViewModel(location: location))
         }
     }
 }

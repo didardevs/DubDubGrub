@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F1480D829C31A94000129C3 /* ProfileSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1480D729C31A94000129C3 /* ProfileSheetView.swift */; };
 		5F33158A29B684F10010E2FD /* MapBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158929B684F10010E2FD /* MapBalloon.swift */; };
 		5F33158C29B6887E0010E2FD /* DDGMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158B29B6887E0010E2FD /* DDGMapAnnotation.swift */; };
 		5F33158F29B68C4F0010E2FD /* AppTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158E29B68C4F0010E2FD /* AppTabViewModel.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F1480D729C31A94000129C3 /* ProfileSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSheetView.swift; sourceTree = "<group>"; };
 		5F33158929B684F10010E2FD /* MapBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBalloon.swift; sourceTree = "<group>"; };
 		5F33158B29B6887E0010E2FD /* DDGMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGMapAnnotation.swift; sourceTree = "<group>"; };
 		5F33158E29B68C4F0010E2FD /* AppTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewModel.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				5FBA3E0229B55AB7007DE037 /* LocationDetailViewModel.swift */,
 				5FEBF60029B3DDAD007E4513 /* LocationDetailView.swift */,
 				5FBA3E0429B56043007DE037 /* ProfileModalView.swift */,
+				5F1480D729C31A94000129C3 /* ProfileSheetView.swift */,
 			);
 			path = LocationDetailView;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				5FEBF62A29B485A8007E4513 /* CKAsset+Ext.swift in Sources */,
 				5F33158A29B684F10010E2FD /* MapBalloon.swift in Sources */,
 				5FEBF62829B44CEA007E4513 /* DDGLocationManager.swift in Sources */,
+				5F1480D829C31A94000129C3 /* ProfileSheetView.swift in Sources */,
 				5FBA3E0029B54A21007DE037 /* LoadingView.swift in Sources */,
 				5F7F124729B4A7F800A5F96D /* UIImage+Ext.swift in Sources */,
 				5F33158C29B6887E0010E2FD /* DDGMapAnnotation.swift in Sources */,
@@ -689,8 +693,8 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dub Dub Grub uses your location to show where you are on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -698,9 +702,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = didarnaurzbayev.DubDubGrub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -720,8 +727,8 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dub Dub Grub uses your location to show where you are on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -729,9 +736,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = didarnaurzbayev.DubDubGrub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
