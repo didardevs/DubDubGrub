@@ -9,54 +9,68 @@ import SwiftUI
 import MapKit
 import CloudKit
 
-final class LocationMapViewModel: ObservableObject {
+extension LocationMapView {
+    
+    final class LocationMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
-    @Published var checkedInProfiles : [CKRecord.ID : Int] = [:]
-    @Published var isShowingDetailView = false
-    @Published var alertItem: AlertItem?
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        @Published var checkedInProfiles : [CKRecord.ID : Int] = [:]
+        @Published var isShowingDetailView = false
+        @Published var alertItem: AlertItem?
+        @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 
-    
-    func getLocations(for locationManager: DDGLocationManager) {
-        DDGCloudKitManager.shared.getLocations { [self] result in
-            DispatchQueue.main.async {
-                switch result {
-                    case .success(let locations):
-                    locationManager.locations = locations
-                    case .failure(_):
-                    self.alertItem = AlertContex.unableToGetLocations
-                }
-            }
-        }
-    }
-    
-    func getCheckedInCount(){
-        DDGCloudKitManager.shared.getCheckedInProfileCount { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let checkedInProfiles):
-                    self.checkedInProfiles = checkedInProfiles
-                case .failure(_):
-                        break
-                }
-            }
-        }
-    }
-    
-    func createVoiceOverSummary(for location: DDGLocation) -> String {
-        let count = checkedInProfiles[location.id, default: 0]
-        let personPlurality = count == 1 ? "person" : "people"
+        let deviceLocationManager = CLLocationManager()
         
-        return "Map Pin \(location.name) \(count) \(personPlurality) checked in"
-    }
-    
-    @ViewBuilder func createLocationDetailView(for location: DDGLocation, in sizeCategory: DynamicTypeSize) -> some View {
-        if sizeCategory >= .large {
-            LocationDetailView(viewModel: LocationDetailViewModel(location: location)).embedInScrollView()
-        } else {
-            LocationDetailView(viewModel: LocationDetailViewModel(location: location))
+        override init() {
+            super.init()
+            deviceLocationManager.delegate = self
+        }
+        
+        
+        func requestAllowOnceLocationPermission() {
+            deviceLocationManager.requestLocation()
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let currentLocation = locations.last else { return }
+            
+            withAnimation {
+                region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            }
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print("Did Fail With Error")
+        }
+        
+        @MainActor
+        func getLocations(for locationManager: DDGLocationManager) {
+            Task {
+                do {
+                    locationManager.locations = try await DDGCloudKitManager.shared.getLocations()
+                } catch {
+                    alertItem = AlertContex.unableToGetLocations
+                }
+            }
+        }
+        
+        @MainActor
+        func getCheckedInCount(){
+            Task {
+                do {
+                    checkedInProfiles = try await DDGCloudKitManager.shared.getCheckedInProfileCount()
+                } catch {
+                    alertItem = AlertContex.checkedInCount
+                }
+            }
+        }
+        
+        @MainActor
+        @ViewBuilder func createLocationDetailView(for location: DDGLocation, in dynamicTypeSize: DynamicTypeSize) -> some View {
+            if dynamicTypeSize >= .accessibility3 {
+                LocationDetailView(viewModel: LocationDetailViewModel(location: location)).embedInScrollView()
+            } else {
+                LocationDetailView(viewModel: LocationDetailViewModel(location: location))
+            }
         }
     }
 }
-
-

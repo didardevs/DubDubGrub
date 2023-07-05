@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F1480D829C31A94000129C3 /* ProfileSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1480D729C31A94000129C3 /* ProfileSheetView.swift */; };
+		5F1480DA29C3D6B0000129C3 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1480D929C3D6B0000129C3 /* HapticManager.swift */; };
 		5F33158A29B684F10010E2FD /* MapBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158929B684F10010E2FD /* MapBalloon.swift */; };
 		5F33158C29B6887E0010E2FD /* DDGMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158B29B6887E0010E2FD /* DDGMapAnnotation.swift */; };
 		5F33158F29B68C4F0010E2FD /* AppTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F33158E29B68C4F0010E2FD /* AppTabViewModel.swift */; };
@@ -21,6 +22,7 @@
 		5FBA3E0029B54A21007DE037 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA3DFF29B54A21007DE037 /* LoadingView.swift */; };
 		5FBA3E0329B55AB7007DE037 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA3E0229B55AB7007DE037 /* LocationDetailViewModel.swift */; };
 		5FBA3E0529B56043007DE037 /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA3E0429B56043007DE037 /* ProfileModalView.swift */; };
+		5FE776032A55424E00E60341 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE776022A55424E00E60341 /* CloudKit.framework */; };
 		5FEBF5CC29B3D44A007E4513 /* DubDubGrubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF5CB29B3D44A007E4513 /* DubDubGrubApp.swift */; };
 		5FEBF5D029B3D44B007E4513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBF5CF29B3D44B007E4513 /* Assets.xcassets */; };
 		5FEBF5D329B3D44B007E4513 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBF5D229B3D44B007E4513 /* Preview Assets.xcassets */; };
@@ -43,7 +45,6 @@
 		5FEBF61929B42E43007E4513 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF61829B42E43007E4513 /* MockData.swift */; };
 		5FEBF61C29B431E6007E4513 /* DDGCloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF61B29B431E6007E4513 /* DDGCloudKitManager.swift */; };
 		5FEBF61F29B43379007E4513 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF61E29B43379007E4513 /* Constants.swift */; };
-		5FEBF62129B43704007E4513 /* CKRecord+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62029B43704007E4513 /* CKRecord+Ext.swift */; };
 		5FEBF62329B437D5007E4513 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62229B437D5007E4513 /* AlertItem.swift */; };
 		5FEBF62629B44618007E4513 /* LocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62529B44618007E4513 /* LocationMapViewModel.swift */; };
 		5FEBF62829B44CEA007E4513 /* DDGLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBF62729B44CEA007E4513 /* DDGLocationManager.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		5F1480D729C31A94000129C3 /* ProfileSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSheetView.swift; sourceTree = "<group>"; };
+		5F1480D929C3D6B0000129C3 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		5F33158929B684F10010E2FD /* MapBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBalloon.swift; sourceTree = "<group>"; };
 		5F33158B29B6887E0010E2FD /* DDGMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGMapAnnotation.swift; sourceTree = "<group>"; };
 		5F33158E29B68C4F0010E2FD /* AppTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewModel.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		5FBA3DFF29B54A21007DE037 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		5FBA3E0229B55AB7007DE037 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		5FBA3E0429B56043007DE037 /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
+		5FE776022A55424E00E60341 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5FEBF5C829B3D44A007E4513 /* DubDubGrub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DubDubGrub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEBF5CB29B3D44A007E4513 /* DubDubGrubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DubDubGrubApp.swift; sourceTree = "<group>"; };
 		5FEBF5CF29B3D44B007E4513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +112,6 @@
 		5FEBF61829B42E43007E4513 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		5FEBF61B29B431E6007E4513 /* DDGCloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGCloudKitManager.swift; sourceTree = "<group>"; };
 		5FEBF61E29B43379007E4513 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		5FEBF62029B43704007E4513 /* CKRecord+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+Ext.swift"; sourceTree = "<group>"; };
 		5FEBF62229B437D5007E4513 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		5FEBF62529B44618007E4513 /* LocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewModel.swift; sourceTree = "<group>"; };
 		5FEBF62729B44CEA007E4513 /* DDGLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocationManager.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FE776032A55424E00E60341 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +209,14 @@
 			path = LocationDetailView;
 			sourceTree = "<group>";
 		};
+		5FE776012A55424E00E60341 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FE776022A55424E00E60341 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5FEBF5BF29B3D44A007E4513 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +224,7 @@
 				5FEBF5DB29B3D44B007E4513 /* DubDubGrubTests */,
 				5FEBF5E529B3D44B007E4513 /* DubDubGrubUITests */,
 				5FEBF5C929B3D44A007E4513 /* Products */,
+				5FE776012A55424E00E60341 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -272,7 +284,6 @@
 			children = (
 				5FEBF60929B3FCB2007E4513 /* View+Ext.swift */,
 				5FEBF5F629B3D610007E4513 /* Color+Ext.swift */,
-				5FEBF62029B43704007E4513 /* CKRecord+Ext.swift */,
 				5FEBF62929B485A8007E4513 /* CKAsset+Ext.swift */,
 				5F7F124629B4A7F800A5F96D /* UIImage+Ext.swift */,
 			);
@@ -292,9 +303,9 @@
 		5FEBF60F29B3FEC1007E4513 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5F7F123C29B493B800A5F96D /* OnBoardingView.swift */,
 				5FBA3E0129B55A91007DE037 /* LocationDetailView */,
 				5F33158D29B68C3E0010E2FD /* AppTabView */,
-				5F7F123C29B493B800A5F96D /* OnBoardingView.swift */,
 				5FEBF62429B445DF007E4513 /* LocationMapView */,
 				5FBA3DFC29B539B7007DE037 /* LocationListView */,
 				5FBA3DFB29B53998007DE037 /* ProfileView */,
@@ -338,6 +349,7 @@
 			children = (
 				5FEBF61B29B431E6007E4513 /* DDGCloudKitManager.swift */,
 				5FEBF62729B44CEA007E4513 /* DDGLocationManager.swift */,
+				5F1480D929C3D6B0000129C3 /* HapticManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -496,6 +508,7 @@
 				5F7F123D29B493B800A5F96D /* OnBoardingView.swift in Sources */,
 				5FEBF60829B3FC8B007E4513 /* CustomModifiers.swift in Sources */,
 				5FBA3E0329B55AB7007DE037 /* LocationDetailViewModel.swift in Sources */,
+				5F1480DA29C3D6B0000129C3 /* HapticManager.swift in Sources */,
 				5FEBF5FB29B3D6AF007E4513 /* LocationMapView.swift in Sources */,
 				5FEBF62629B44618007E4513 /* LocationMapViewModel.swift in Sources */,
 				5FBA3DFE29B539F7007DE037 /* ProfileViewModel.swift in Sources */,
@@ -516,7 +529,6 @@
 				5FBA3E0529B56043007DE037 /* ProfileModalView.swift in Sources */,
 				5FEBF61C29B431E6007E4513 /* DDGCloudKitManager.swift in Sources */,
 				5FA891D729B5CA01002AD861 /* LocationListViewModel.swift in Sources */,
-				5FEBF62129B43704007E4513 /* CKRecord+Ext.swift in Sources */,
 				5FEBF60C29B3FD7A007E4513 /* DDGButton.swift in Sources */,
 				5FEBF62A29B485A8007E4513 /* CKAsset+Ext.swift in Sources */,
 				5F33158A29B684F10010E2FD /* MapBalloon.swift in Sources */,
@@ -693,6 +705,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dub Dub Grub uses your location to show where you are on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -727,6 +740,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Dub Dub Grub uses your location to show where you are on the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

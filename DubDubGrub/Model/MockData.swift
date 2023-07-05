@@ -23,9 +23,9 @@ struct MockData {
     
     static var profile: CKRecord {
         let record = CKRecord(recordType: RecordType.profile)
-        record[DDGProfile.kFirstName] = "Test"
-        record[DDGProfile.kLastName] = "Test"
-        record[DDGProfile.kCompanyName] = "Test's Company"
+        record[DDGProfile.kFirstName] = "Aleksandra Jòrd"
+        record[DDGProfile.kLastName] = "Kristjánsdóttir"
+        record[DDGProfile.kCompanyName] = "Icelandic Air Development LLC"
         record[DDGProfile.kBio] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
         
         return record

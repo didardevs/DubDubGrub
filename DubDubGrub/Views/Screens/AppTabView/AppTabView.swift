@@ -20,16 +20,15 @@ struct AppTabView: View {
             LocationListView()
                 .tabItem { Label("Locations", systemImage: "building") }
             
-            NavigationView{  ProfileView() }
+            NavigationStack {  ProfileView() }
             .tabItem { Label("Profile", systemImage: "person") }
         }
-        .onAppear{
-            DDGCloudKitManager.shared.getUserRecord()
-            viewModel.runStartupChecks()
+        .task {
+            try? await DDGCloudKitManager.shared.getUserRecord()
+            viewModel.checkIfHasSeenOnboard()
         }
-        .tint(.brandPrimary)
-        .sheet(isPresented: $viewModel.isShowingOnboardView, onDismiss: viewModel.checkIfLocationServicesIsEnabled) {
-            OnBoardingView(isShowingOnboardView: $viewModel.isShowingOnboardView)
+        .sheet(isPresented: $viewModel.isShowingOnboardView) {
+            OnBoardingView()
         }
     }
 }
