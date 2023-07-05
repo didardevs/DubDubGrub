@@ -9,14 +9,14 @@ import SwiftUI
 
 struct OnBoardingView: View {
     
-    @Binding var isShowingOnboardView: Bool
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button {
-                    isShowingOnboardView = false
+                    dismiss()
                 } label: {
                     XDismissButton()
                 }
@@ -29,7 +29,9 @@ struct OnBoardingView: View {
             
             VStack(alignment: .leading, spacing: 32) {
                 OnboardInfoView(imageName: "building.2.crop.circle", title: "Restaurant Locations", description: "Find places to dine around the convention center")
+                
                 OnboardInfoView(imageName: "checkmark.circle", title: "Check In", description: "Let other iOS Devs know where you are")
+                
                 OnboardInfoView(imageName: "person.2.circle", title: "Find Friends", description: "See where other iOS Devs are and join the party")
             }
             .padding(.horizontal, 40)
@@ -40,11 +42,11 @@ struct OnBoardingView: View {
 
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingView(isShowingOnboardView: .constant(true))
+        OnBoardingView()
     }
 }
 
-struct OnboardInfoView: View {
+fileprivate struct OnboardInfoView: View {
     
     var imageName: String
     var title: String

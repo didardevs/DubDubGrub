@@ -11,7 +11,7 @@ import CloudKit
 
 enum CheckInStatus { case checkIn, checkOut }
 
-final class LocationDetailViewModel: ObservableObject {
+@MainActor final class LocationDetailViewModel: ObservableObject {
     
     @Published var checkedInProfiles: [DDGProfile] = []
     @Published var isCheckedIn = false
@@ -23,11 +23,14 @@ final class LocationDetailViewModel: ObservableObject {
     
     var location: DDGLocation
     var selectedProfile: DDGProfile?
+    var buttonColor: Color { isCheckedIn ? .grubRed : .brandPrimary }
+    var buttonImageTitle: String { isCheckedIn ? "person.fill.xmark" : "person.fill.checkmark" }
+    var buttonA11yLabel: String { isCheckedIn ? "person.fill.xmark" : "person.fill.checkmark"}
     
     init(location:DDGLocation) { self.location = location }
     
-    func determineColumns(for sizeCategory: DynamicTypeSize) -> [GridItem] {
-        let numberOfColumns = sizeCategory >= .large ? 1 : 3
+    func determineColumns(for dynamicTypeSize: DynamicTypeSize) -> [GridItem] {
+        let numberOfColumns = dynamicTypeSize >= .accessibility3 ? 1 : 3
         return Array(repeating: GridItem(.flexible()), count: numberOfColumns)
     }
     
@@ -55,20 +58,19 @@ final class LocationDetailViewModel: ObservableObject {
     func getCheckedInStatus() {
         guard let profileRecordID = DDGCloudKitManager.shared.profileRecordID else { return }
         
-        DDGCloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
-            DispatchQueue.main.async {
-                switch result {
-                    case .success(let record):
-                        if let reference = record[DDGProfile.kIsCheckedIn] as? CKRecord.Reference {
-                            isCheckedIn = reference.recordID == location.id
-                        } else {
-                            isCheckedIn = false
-                        }
-                    case .failure(_):
-                    alertItem = AlertContex.unableToGetCheckInStatus
+        Task {
+            do {
+                let record = try await DDGCloudKitManager.shared.fetchRecord(with: profileRecordID)
+                if let reference = record[DDGProfile.kIsCheckedIn] as? CKRecord.Reference {
+                    isCheckedIn = reference.recordID == location.id
+                } else {
+                    isCheckedIn = false
                 }
+            } catch {
+                alertItem = AlertContex.unableToGetCheckInStatus
             }
         }
+
     }
     
     func updateCheckInStatus(to checkInStatus: CheckInStatus){
@@ -78,9 +80,11 @@ final class LocationDetailViewModel: ObservableObject {
             return
         }
         
-        DDGCloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
-            switch result {
-            case .success(let record):
+        showLoadingView()
+        
+        Task {
+            do {
+                let record = try await DDGCloudKitManager.shared.fetchRecord(with: profileRecordID)
                 switch checkInStatus {
                 case .checkIn:
                     record[DDGProfile.kIsCheckedIn] = CKRecord.Reference(recordID: location.id, action: .none)
@@ -90,26 +94,20 @@ final class LocationDetailViewModel: ObservableObject {
                     record[DDGProfile.kIsCheckedInNilCheck] = nil
                 }
                 
-                DDGCloudKitManager.shared.save(record: record) { result in
-                    DispatchQueue.main.async {
-                        switch result {
-                        case .success(let record):
-                            let profile = DDGProfile(record: record)
-                            switch checkInStatus {
-                            case .checkIn:
-                                checkedInProfiles.append(profile)
-                            case .checkOut:
-                                checkedInProfiles.removeAll(where:{ $0.id == profile.id })
-                            }
-                            
-                            isCheckedIn = checkInStatus == .checkIn
-                            
-                        case .failure(_):
-                            alertItem = AlertContex.unableToCheckInOrOut
-                        }
-                    }
+                let savedRecord = try await DDGCloudKitManager.shared.save(record: record)
+                hideLoadingView()
+                HapticManager.playSuccess()
+                let profile = DDGProfile(record: savedRecord)
+                switch checkInStatus {
+                case .checkIn:
+                    checkedInProfiles.append(profile)
+                case .checkOut:
+                    checkedInProfiles.removeAll(where:{ $0.id == profile.id })
                 }
-            case .failure(_):
+                
+                isCheckedIn.toggle()
+            } catch {
+                hideLoadingView()
                 alertItem = AlertContex.unableToCheckInOrOut
             }
         }
@@ -117,23 +115,20 @@ final class LocationDetailViewModel: ObservableObject {
     
     func getCheckInProfiles() {
         showLoadingView()
-        DDGCloudKitManager.shared.getCheckedInProfiles(for: location.id) { result in
-            DispatchQueue.main.async { [self] in
-                switch result {
-                case .success(let profiles):
-                    checkedInProfiles = profiles
-                case .failure(_):
-                    alertItem = AlertContex.unableToGetCheckedInProfiles
-                }
-                
+        Task {
+            do {
+                checkedInProfiles = try await DDGCloudKitManager.shared.getCheckedInProfiles(for: location.id)
                 hideLoadingView()
+            } catch {
+                hideLoadingView()
+                alertItem = AlertContex.unableToGetCheckedInProfiles
             }
         }
     }
     
-    func show(profile: DDGProfile, in sizeCategory: DynamicTypeSize) {
+    func show(_ profile: DDGProfile, in dynamicTypeSize: DynamicTypeSize) {
         selectedProfile = profile
-        if sizeCategory >= .large {
+        if dynamicTypeSize >= .accessibility3 {
             isShowingProfileSheet = true
         } else {
             isShowingProfileModal = true

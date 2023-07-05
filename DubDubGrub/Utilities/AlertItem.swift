@@ -12,12 +12,20 @@ struct AlertItem: Identifiable {
     let title: Text
     let message: Text
     let dismissButton: Alert.Button
+    
+    var alert: Alert {
+        Alert(title: title, message: message, dismissButton: dismissButton)
+    }
 }
 
 struct AlertContex {
     //MARK: - MapView Errors
     
     static let unableToGetLocations = AlertItem(title: Text("Location Error"), message: Text("Unable to retrieve locations at this time. \nPlease try again."), dismissButton: .default(Text("Ok")))
+    static let checkedInCount = AlertItem(title: Text("Server Error"), message: Text("Unable to get the number of people checked into each location. Please check your internet connection and try again."), dismissButton: .default(Text("Ok")))
+    
+    //MARK: - LocationListView Errors
+    static let unableToGetAllCheckedInProfiles = AlertItem(title: Text("Server Error"), message: Text("We are unable to get all users checked in at this time.\nPlease try again."), dismissButton: .default(Text("Ok")))
     
     //MARK: - Location Authorization Errors
     static let locationRestricted = AlertItem(title: Text("Location Restricted"), message: Text("Your location is restricted. This may be due to parental controls."), dismissButton: .default(Text("Ok")))

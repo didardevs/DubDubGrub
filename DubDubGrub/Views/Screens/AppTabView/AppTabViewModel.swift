@@ -5,57 +5,24 @@
 //  Created by Didar Naurzbayev on 3/6/23.
 //
 
-import CoreLocation
 
-final class AppTabViewModel: NSObject, ObservableObject {
+import SwiftUI
+
+extension AppTabView {
     
-    @Published var isShowingOnboardView = false
-    @Published var alertItem: AlertItem?
-    
-    var deviceLocationManager: CLLocationManager?
-    let kHasSeenOnboardView = "hasSeenOnboardView"
-    
-    var hasSeenOnboardView: Bool { return UserDefaults.standard.bool(forKey: kHasSeenOnboardView) }
-    
-    
-    func runStartupChecks() {
-        if !hasSeenOnboardView {
-            isShowingOnboardView = true
-            UserDefaults.standard.set(true, forKey: kHasSeenOnboardView)
-        } else {
-            checkIfLocationServicesIsEnabled()
-        }
-    }
-    
-    func checkIfLocationServicesIsEnabled() {
-            if CLLocationManager.locationServicesEnabled() {
-                deviceLocationManager = CLLocationManager()
-                deviceLocationManager!.delegate = self
-            } else {
-                alertItem = AlertContex.locationDisabled
-            }
-    }
-    
-    private func checkLocationAuthorization() {
-        guard let deviceLocationManager else { return }
+    final class AppTabViewModel: ObservableObject {
         
-        switch deviceLocationManager.authorizationStatus {
-        case .notDetermined:
-            deviceLocationManager.requestWhenInUseAuthorization()
-        case .denied:
-            alertItem = AlertContex.locationDenied
-        case .restricted:
-            alertItem = AlertContex.locationRestricted
-        case .authorizedAlways, .authorizedWhenInUse:
-            break
-        @unknown default:
-            break
+        @Published var isShowingOnboardView = false
+        @AppStorage("hasSeenOnboardView") var hasSeenOnboardView = false {
+            didSet { isShowingOnboardView = hasSeenOnboardView }
+        }
+        
+        let kHasSeenOnboardView = "hasSeenOnboardView"
+        
+
+        func checkIfHasSeenOnboard() {
+            if !hasSeenOnboardView { hasSeenOnboardView = true }
         }
     }
 }
 
-extension AppTabViewModel: CLLocationManagerDelegate {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
-    }
-}

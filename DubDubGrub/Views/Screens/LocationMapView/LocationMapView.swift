@@ -5,6 +5,7 @@
 //  Created by Didar Naurzbayev on 3/4/23.
 //
 
+import CoreLocationUI
 import SwiftUI
 import MapKit
 
@@ -12,14 +13,15 @@ struct LocationMapView: View {
     
     @EnvironmentObject private var locationManager: DDGLocationManager
     @StateObject private var viewModel = LocationMapViewModel()
-    @Environment(\.dynamicTypeSize) var sizeCategory
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var body: some View {
-        ZStack {
+        ZStack (alignment: .top) {
+            
             Map(coordinateRegion: $viewModel.region,showsUserLocation: true, annotationItems: locationManager.locations) { location in
+                
                 MapAnnotation(coordinate: location.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
                     DDGMapAnnotation(location: location, number: viewModel.checkedInProfiles[location.id, default: 0])
-                        .accessibilityLabel(Text(viewModel.createVoiceOverSummary(for: location)))
                         .onTapGesture {
                             locationManager.selectedLocation = location
                             if let _ = locationManager.selectedLocation {
@@ -31,25 +33,28 @@ struct LocationMapView: View {
             .tint(.grubRed)
             .ignoresSafeArea()
             
-            VStack {
-                LogoView(frameWidth: 125)
-                    .shadow(radius: 10)
-                Spacer()
-            }
+            LogoView(frameWidth: 125).shadow(radius: 10)
         }
         .sheet(isPresented: $viewModel.isShowingDetailView) {
-            NavigationView {
-                viewModel.createLocationDetailView(for: locationManager.selectedLocation!, in: sizeCategory)
+            NavigationStack {
+                viewModel.createLocationDetailView(for: locationManager.selectedLocation!, in: dynamicTypeSize)
                     .toolbar { Button("Dismiss") { viewModel.isShowingDetailView = false } }
             }
-            .tint(.brandPrimary)
         }
-        .alert(item: $viewModel.alertItem, content: { alertItem in
-            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-        })
-        .onAppear {
+        .overlay(alignment: .bottomLeading) {
+            LocationButton(.currentLocation) {
+                viewModel.requestAllowOnceLocationPermission()
+            }
+            .foregroundColor(.white)
+            .symbolVariant(.fill)
+            .tint(.grubRed)
+            .labelStyle(.iconOnly)
+            .clipShape(Circle())
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 0))
+        }
+        .alert(item: $viewModel.alertItem, content: { $0.alert })
+        .task {
             if locationManager.locations.isEmpty { viewModel.getLocations(for: locationManager) }
-            
             viewModel.getCheckedInCount()
         }
     }
@@ -57,7 +62,7 @@ struct LocationMapView: View {
 
 struct LocationMapView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationMapView()
+        LocationMapView().environmentObject(DDGLocationManager())
     }
 }
 

@@ -16,10 +16,10 @@ struct DDGMapAnnotation: View {
         VStack {
             ZStack {
                 MapBalloon()
+                    .fill(Color.brandPrimary.gradient)
                     .frame(width: 100, height: 70)
-                    .foregroundColor(.brandPrimary)
                 
-                Image(uiImage: location.createSquareImage())
+                Image(uiImage: location.squareImage)
                     .resizable()
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
@@ -39,8 +39,8 @@ struct DDGMapAnnotation: View {
             Text(location.name)
                 .font(.caption)
                 .fontWeight(.semibold)
-                
         }
+        .accessibilityLabel(Text("Map Pin: \(location.name) \(number) checked in"))
     }
 }
 
